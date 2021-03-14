@@ -1,4 +1,3 @@
-import axios from "axios";
 import { apiEndpoints, client } from "../../config/api";
 
 const getUsers = async () => {
