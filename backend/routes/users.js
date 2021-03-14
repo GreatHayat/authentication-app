@@ -1,3 +1,4 @@
+const auth = require("../middleware/auth");
 const _ = require("lodash");
 const express = require("express");
 const router = express.Router();
@@ -23,4 +24,8 @@ router.post("/", async (req, res) => {
   res.status(201).send({ message: "User registered successfully" });
 });
 
+router.get("/", auth, async (req, res) => {
+  const users = await User.find();
+  res.send(users);
+});
 module.exports = router;
